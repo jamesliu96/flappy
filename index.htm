@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Flappy Mario</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link rel="shortcut icon" href="/favicon.ico"/> 
+    <link rel="icon" type="image/png" href="/favicon.png"/>
+    <meta name="author" content="James Liu"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <style>
+        @import url(/css/Quantico.css);
+        html,body {
+            padding: 0;
+            margin: 0;
+            text-align: -webkit-center;
+            background-color: #DED895;
+        }
+        #screen {
+            display: inline-block;
+            background-color: #DED895;
+        }
+        #screen canvas {
+            margin: 0 auto;
+        }
+        #name {
+            position: absolute;
+            left: 50%;
+            bottom: 5%;
+            font-family: "Quantico", sans-serif;
+            font-size: 12px;
+            margin-left: -40px;
+        }
+        ::selection {
+            background-color: #ee22ee;
+        }
+        a {
+            color: #00f;
+            background-color: #aaf;
+            border-radius: 2px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div id="screen"></div>
+<span id="name">BY <a href="/">JAMES LIU</a></span>
+<script src="phaser.min.js"></script>
+<script src="index.min.js"></script>
+</body>
+</html>
