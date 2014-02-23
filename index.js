@@ -1,4 +1,4 @@
-var DEBUG, GAME_HEIGHT, GRAVITY, GROUND_HEIGHT, GROUND_Y, HARD, HEIGHT, SPAWN_RATE, SPEED, WIDTH, avoidText, bestScore, bestText, bg, smashroom, mashrooms, mashroomsTimer, blood, bloods, board, dieRate, fallSnd, flapSnd, floor, gameOver, gameOverText, gameStart, gameStartText, ground, hurtSnd, instText, main, resetText, score, scoreSnd, scoreText, swooshSnd, mario;
+var DEBUG, GAME_HEIGHT, GRAVITY, GROUND_HEIGHT, GROUND_Y, HARD, HEIGHT, SPAWN_RATE, SPEED, WIDTH, avoidText, bestScore, bestText, bg, smashroom, mashrooms, mushrooms, mashroomsTimer, blood, bloods, board, dieRate, fallSnd, flapSnd, floor, gameOver, gameOverText, gameStart, gameStartText, ground, hurtSnd, instText, main, resetText, score, scoreSnd, scoreText, swooshSnd, mario;
 
 DEBUG = false;
 
@@ -23,6 +23,8 @@ HARD = 250;
 mario = null;
 
 mashrooms = null;
+
+mushrooms = null;
 
 smashroom = null;
 
@@ -75,11 +77,22 @@ swooshSnd = null;
 floor = Math.floor;
 
 main = function() {
-  var create, createmashrooms, flap, game, hitmashrooms, over, preload, render, reset, start, state, update;
+  var create, createmashrooms, flap, game, hitmashrooms, hitmushrooms, over, preload, render, reset, start, state, update;
   hitmashrooms = function(mario, mashroom) {
     var b;
     mashroom.kill();
     score += 1;
+    bestScore = score > bestScore ? score : bestScore;
+    scoreText.setText(score);
+    b = bloods.getFirstDead();
+    b.reset(mashroom.body.x, mashroom.body.y);
+    b.play('blood', 20, false, true);
+    hurtSnd.play();
+  };
+  hitmushrooms = function(mario, mashroom) {
+    var b;
+    mashroom.kill();
+    score += 5;
     bestScore = score > bestScore ? score : bestScore;
     scoreText.setText(score);
     b = bloods.getFirstDead();
@@ -95,6 +108,11 @@ main = function() {
         mashroom.kill();
       }
     });
+    mushrooms.forEachAlive(function(mashroom) {
+      if (mashroom.x + mashroom.width < game.world.bounds.left) {
+        mashroom.kill();
+      }
+    });
     smashroom.forEachAlive(function(mashroom) {
       if (mashroom.x + mashroom.width < game.world.bounds.left) {
         mashroom.kill();
@@ -103,7 +121,10 @@ main = function() {
     for (i = _i = _ref = parseInt(Math.random() * 10) % 4 + 8; _ref <= 0 ? _i < 0 : _i > 0; i = _ref <= 0 ? ++_i : --_i) {
       raceName = Math.random() > dieRate ? 'mashroom' : 'smashroom';
       race = raceName === 'mashroom' ? mashrooms : smashroom;
-      mashroom = race.create(game.world.width - (Math.random() - 0.5) * 120, i * (35 - (Math.random() - 0.5) * 5), raceName);
+      if (Math.random() > 0.9)
+        mashroom = mushrooms.create(game.world.width - (Math.random() - 0.5) * 120, i * (35 - (Math.random() - 0.5) * 5), 'mushroom');
+      else
+        mashroom = race.create(game.world.width - (Math.random() - 0.5) * 120, i * (35 - (Math.random() - 0.5) * 5), raceName);
       mashroom.anchor.setTo(0.5, 0.5);
       mashroom.body.velocity.x = -SPEED * 1.5;
     }
@@ -157,6 +178,7 @@ main = function() {
       image: {
         "bg": 'res/bg.png',
         "mashroom": 'res/mashroom.png',
+        "mushroom": 'res/mushroom.png',
         "smashroom": 'res/smashroom.png',
         "g": 'res/g.png',
         "mario": 'res/mario.png',
@@ -190,6 +212,7 @@ main = function() {
     bg = game.add.tileSprite(0, 0, WIDTH, HEIGHT, 'bg');
     ground = game.add.tileSprite(0, GROUND_Y, WIDTH, GROUND_HEIGHT, 'g');
     mashrooms = game.add.group();
+    mushrooms = game.add.group();
     smashroom = game.add.group();
     mario = game.add.sprite(0, 0, "mario");
     mario.anchor.setTo(0.5, 0.5);
@@ -204,7 +227,6 @@ main = function() {
       x.anchor.y = 0.5;
       x.animations.add('blood');
       return;
-      return this;
     });
     board = game.add.sprite(game.world.width / 2, game.world.height / 2.3, 'board');
     board.anchor.setTo(0.5, 0.5);
@@ -261,6 +283,7 @@ main = function() {
           over();
         }
         game.physics.overlap(mario, mashrooms, hitmashrooms, null, this);
+        game.physics.overlap(mario, mushrooms, hitmushrooms, null, this);
         if (!gameOver) {
           ground.tilePosition.x -= game.time.physicsElapsed * SPEED / 2;
         }
@@ -292,6 +315,7 @@ main = function() {
     scoreText.x = game.world.width / 2;
     scoreText.y = game.world.height / 6;
     mashrooms.removeAll();
+    mushrooms.removeAll();
     mario.reset(game.world.width * 0.25, game.world.height / 2.3);
   };
   state = {
