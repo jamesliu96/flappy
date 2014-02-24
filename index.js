@@ -121,10 +121,7 @@ main = function() {
     for (i = _i = _ref = parseInt(Math.random() * 10) % 4 + 8; _ref <= 0 ? _i < 0 : _i > 0; i = _ref <= 0 ? ++_i : --_i) {
       raceName = Math.random() > dieRate ? 'mashroom' : 'smashroom';
       race = raceName === 'mashroom' ? mashrooms : smashroom;
-      if (Math.random() > 0.9)
-        mashroom = mushrooms.create(game.world.width - (Math.random() - 0.5) * 120, i * (35 - (Math.random() - 0.5) * 5), 'mushroom');
-      else
-        mashroom = race.create(game.world.width - (Math.random() - 0.5) * 120, i * (35 - (Math.random() - 0.5) * 5), raceName);
+      mashroom = Math.random() > 0.9 ? mushrooms.create(game.world.width - (Math.random() - 0.5) * 120, i * (35 - (Math.random() - 0.5) * 5), 'mushroom') : race.create(game.world.width - (Math.random() - 0.5) * 120, i * (35 - (Math.random() - 0.5) * 5), raceName);
       mashroom.anchor.setTo(0.5, 0.5);
       mashroom.body.velocity.x = -SPEED * 1.5;
     }
