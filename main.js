@@ -4,7 +4,7 @@ DEBUG = false;
 
 SPEED = 160;
 
-GRAVITY = 600;
+GRAVITY = 800;
 
 SPAWN_RATE = 1 / 1200;
 
