@@ -9,8 +9,8 @@ Introduction
 Use the code
 ------
 
-- main.js (main source code of the game)
-- phaser.js (phaser 2d game lib)
+- main.min.js (main source code of the game)
+- phaser.min.js (phaser 2d game lib)
 
 License
 ------
