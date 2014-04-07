@@ -9,13 +9,13 @@ Introduction
 Use the code
 ------
 
-- main.min.js (main source code of the game)
-- phaser.min.js (phaser 2d game lib)
+- `main.min.js` (main source code of the game)
+- `phaser.min.js` (phaser 2d game lib)
 
 License
 ------
 
-The MIT License (MIT)
+[The MIT License](http://james.mit-license.org/) (MIT)
 
 Copyright (c) 2014 James Liu
 
