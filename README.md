@@ -15,9 +15,9 @@ Use the code
 License
 ------
 
-[The MIT License](http://james.mit-license.org/) (MIT)
+The MIT License (MIT)
 
-Copyright (c) 2014 James Liu
+Copyright (c) 2014 James Liu <j@jamesliu.info>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
