@@ -1,0 +1,18 @@
+一个偶然的机会，让我接触到了“Flappy Bird”这款游戏，那时这款游戏还没有这么火。虽然游戏的风格和设计与超级玛丽相似，让人有一种似曾相识的感觉，但是其游戏类型和玩法截然不同：让小鸟通过上下管道的间的缝隙。接着，网络上“Flappy Bird”多种多样的改编版和网络应用层出不穷，有的甚至可以联网和小伙伴们对战，这些游戏又让游戏玩家发现了新大陆。通过和其他开发者的交流我找到了游戏的灵感，利用开源的框架和资源，自己制作了一款原创的基于HTML5和JavaScript技术的游戏：“Flappy Mario”。游戏玩家通过点击/轻按屏幕来控制主人公Mario的弹跳，以此准确击杀蘑菇。击杀红蘑菇获得一分，绿蘑菇则值5分，相应的，如果碰到灰色的蘑菇则会导致游戏结束。
+
+创造力创造生活。
+创造力来自开源。
+请支持免费开源软件。opensource.org
+请访问：http://flappy.jamesliu.info/ 支持免费开源游戏。
+或访问：https://github.com/jamesliu96 关注我的开源项目。
+版权所有 (c) 2014 SmFtZXM=豆豆 （本软件受到MIT许可证保护）
+
+
+"Flappy Bird" came to my life accidentally, when it was not as popular as it is now. Someone said that it was a déjà-vu of the game "Super Mario". Yet it has its completely different concept: let the small bird fly through the gap between two tubes. High popularity brings imitation. Spontaneously, versions of "Flappy Bird" were seen on the Internet, and some even let users to play arcade mode with other players online. These games provide players with new choices as well as provide me with brand new ideas. Using open-sourced resources and frameworks, I made my own game "Flappy Mario" based on HTML5 and JavaScript. Players can get scores by tapping the screen to flap Mario in order to eat mushrooms. They may eat red mushrooms that worth for 1 point and green mushrooms that worth for 5 points, avoiding from touching the stone mushrooms (they are fossils actually) and falling on to the ground.
+
+Creativity creates novelty.
+Open Source is everything.
+Please support free software and open source projects. opensource.org
+Visit http://flappy.jamesliu.info/ and support free open source games.
+Or visit https://github.com/jamesliu96 and follow my open source projects.
+Copyright (c) 2014 James Liu. Under the MIT license.
